@@ -37,6 +37,28 @@ const {Text, Link} = Typography;
 
 const TAG = 'PluginInstaller';
 
+const columnSizes = {
+  name: '25%',
+  version: '10%',
+  description: 'flex',
+  install: '15%',
+};
+
+const columns = {
+  name: {
+    value: 'Name',
+  },
+  version: {
+    value: 'Version',
+  },
+  description: {
+    value: 'Description',
+  },
+  install: {
+    value: 'Action',
+  },
+};
+
 type PropsFromState = {
   installedPlugins: Map<string, InstalledPluginDetails>;
 };
@@ -92,28 +114,6 @@ const PluginInstaller = function ({
 
   const [restartRequired, setRestartRequired] = useState(false);
   const [query, setQuery] = useState('');
-
-  const columnSizes = {
-    name: '25%',
-    version: '10%',
-    description: 'flex',
-    install: '15%',
-  };
-  
-  const columns = {
-    name: {
-      value: 'Name',
-    },
-    version: {
-      value: 'Version',
-    },
-    description: {
-      value: 'Description',
-    },
-    install: {
-      value: 'Action',
-    },
-  };
 
   const onInstall = useCallback(async () => {
     refreshInstalledPlugins();
